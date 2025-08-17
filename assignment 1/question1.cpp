@@ -10,99 +10,111 @@
 
 #include<iostream>
 using namespace std;
-
-int main(){
-  
-  cout << "Enter 1 to create an array." << endl;
-  cout << "Enter 2 to display an array." << endl;
-  cout << "Enter 3 to insert an element in the array." << endl;
-  cout << "Enter 4 to delete an element in the array." << endl;
-  cout << "Enter 5 for linear search for an element." << endl;
-  cout << "Enter 6 to exit the MENU." << endl;
-  cout << "Enter: ";
-  int input;
-  do{
-    cin >> input;
-    switch(input){
-    case 1:{
-      int n;
-      cin >> n;
-      int arr[n];
-      int i, j;
-      for(i=0;i<n;i++){
-        cin >> arr[i];
-      }
-      break;
-    }
-    case 2:{
-      int n;
-      cin >> n;
-      int arr[n];
-      int j;
-      for(j=0;j<n;j++){
-        cout << arr[j];
-      }
-      break;
-    }
-    case 3:{
-      int n, ind, item, i;
-      cin >> n;
-      cout << "Enter the index:";
-      cin >> ind;
-     cout << "Enter the element:"; 
-      cin >> item;
-      int arr[n];
-      for(i=0;i<n;i++){
-       cin >> arr[i];
-      }
-      n=n+1;
-      for(i=n;i>ind-1;i--){
-       arr[i] = arr[i-1];
-      }
-      arr[ind] = item;
-      for(i=0;i<n;i++){
-       cout << arr[i];
-      }
-      break;
-    }
-    case 4:{
-      int n, ind, item, i;
-      cin >> n;
-      cout << "Enter the index:";
-      cin >> ind;
-      int arr[n];
-      for(i=0;i<n;i++){
-       cin >> arr[i];
-      }
-      for(i=ind+1;i<n;i++){
-        arr[i-1] = arr[i];
-      }
-      n=n-1;
-      for(i=0;i<n;i++){
-       cout << arr[i];
-      }
-      break;
-    }
-    case 5: {
-      int n, i, item;
-      cin >> n;
-      cout << "Enter the element: ";
-      cin >> item;
-      int arr[n];
-      for(i=0;i<n;i++){
-        cin >> arr[i];
-      }
-      for(i=0;i<n;i++){
-        if(arr[i] == item){
-         cout << "Element found at index: " << i;
-         break;
+int main()
+{
+    int arr[100],n=0,choice;
+    do 
+    {
+        cout <<"\n MENU \n"
+                << "1. CREATE\n"
+                << "2. DISPLAY\n"
+                << "3. INSERT\n"
+                << "4. DELETE\n"
+                << "5. LINEAR SEARCH\n"
+                << "6. EXIT\n"
+                << "Enter your choice: ";
+        cin >> choice;
+        switch(choice)
+        {
+            case 1:{//create
+            cout <<"enter the numbner of elements";
+            cin >>n;
+            cout <<"enter the elements\n";
+            for(int i=0;i<n;i++)
+            {
+                cin >>arr[i];
+            }
+            cout <<"array is created ";
+            break;  
         }
-      }
-      break;
+        case 2:{//display
+            cout<< "The elements of the array are: ";}
+            for(int i=0;i<n;i++)
+            {
+                cout << arr[i] <<"\t";
+            }
+            cout<<"\n";
+            break;
+            case 3:{//insert
+                int pos,m;
+                cout <<"enter the pos to enter value";
+                cin >> pos;
+                cout <<"enter the value to be inserted ";
+                cin >>m;
+                if(pos>n|| pos<0)
+                {
+                    cout <<"invalid";
+                }
+                else
+                {
+                    for(int i=n;i>=pos;i--)
+                    {
+                        arr[i]=arr[i-1];
+                    }
+                    arr[pos]=m;
+                    n++;
+                    cout <<"value inserted";
+                }
+                       }
+            break;
+                       case 4://delete
+                       {
+                        int pos;
+                        cout<<"enter the position to delete";
+                        cin>>pos;
+                        if(pos<0 || pos>=n)
+                        {
+                            cout<<"invalid position";
+                        }
+                        else{
+                            for(int i=pos;i<n-1;i++)
+                            {
+                                arr[i]=arr[i+1];         
+                            }
+                            n--;
+                            cout<<"value is deleted";
+                        }
+                       }
+                       case 5://linear search
+                       {
+                        int flag=0,a;
+                        cout<<"enter the value to be searched";
+                        cin>>a;
+                        for(int i=0;i<n;i++)
+                         {
+                            if(arr[i]==a)
+                         
+                         {
+                            cout << "value is found at pos " << i << "\n";
+                            flag = 1;
+                            break;
+                         }
+                        }
+                        if(flag==0)
+                        {
+                            cout<<"not found";
+                        }
+                    }
+                        break;
+                        case 6://exit
+                        cout<<"Exiting the program\n";
+                        break;
+                        default:
+                        cout<<"Invalid choice, please try again.\n";
+                        break;
+
     }
-    case 6:
-      cout << "MENU is Exited!!";
-  }
-  }while(input < 6);
-  return 0;
+        }
+     while(choice != 6);
+    return 0;
 }

@@ -14,8 +14,6 @@ int main(){
       cin >> arr[i][j];
     }
   }
-  
-  
   for(i=0;i<n;i++){
     int rowsum = 0;
     for(j=0;j<m;j++){
@@ -24,7 +22,6 @@ int main(){
     cout << "Sum of row" << i << " " << rowsum;
     cout << endl;
   }
-  
   for(i=0;i<n;i++){
     int columnsum = 0;
     for(j=0;j<m;j++){
@@ -33,5 +30,4 @@ int main(){
     cout << "Sum of column" << i << " " << columnsum;
     cout << endl;
   }
-  
 }

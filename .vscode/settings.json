@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "question 4": "cpp"
+        "question 4": "cpp",
+        "string": "cpp"
     }
 }

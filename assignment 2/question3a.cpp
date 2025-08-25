@@ -14,7 +14,7 @@ int missingNumberLinear(int arr[], int n) {
 
 int main() {
     int arr[] = {1, 2, 3, 5, 6};
-    int n = 6; // array should have numbers 1..6
+    int n = 6;
     cout << "Missing number (Linear): " << missingNumberLinear(arr, n) << endl;
     return 0;
 }
